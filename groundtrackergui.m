@@ -23,4 +23,22 @@ colormap(gtrack, color_map)
 hold(gtrack, 'on')
 earth_proj = image(gtrack,[-180 180],[90 -90],flat_map);
 
+% Add edit boxes for COE
+coelabels = {'Semi-Major Axis', 'Eccentricity', 'Inclination', 'Argument of Perigee', 'RAAN', 'True Anomaly'}; 
+for i = 1:6
+    COEbox(i) = uicontrol(mainfig, 'style', 'edit', 'units', 'normalized', 'position', [.15,.97-.07*i,.05,.05]);
+    uicontrol(mainfig, 'style', 'text', 'units', 'normalized', 'position', [.04,.97-.07*i,.1,.05], 'string', coelabels{i}, 'horizontalalignment', 'right');
+end
+
+% Add edit boxes for inertial 3d
+rvlabels = {'rI', 'rJ', 'rK', 'vI', 'vJ', 'vK'}; 
+for i = 1:6
+    RVbox(i) = uicontrol(mainfig, 'style', 'edit', 'units', 'normalized', 'position', [.3,.97-.07*i,.05,.05]);
+    uicontrol(mainfig, 'style', 'text', 'units', 'normalized', 'position', [.24,.97-.07*i,.05,.05], 'string', rvlabels{i}, 'horizontalalignment', 'right');
+end
+
+% Add edit box for Greenwich hour angle
+gwbox = uicontrol(mainfig, 'style', 'edit', 'units', 'normalized', 'position', [.6,.07,.05,.05]);
+uicontrol(mainfig, 'style', 'text', 'units', 'normalized', 'position', [.44,.07,.15,.05], 'string', 'Greenwich Hour Angle', 'horizontalalignment', 'right');
+
 end
