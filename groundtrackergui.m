@@ -41,4 +41,22 @@ end
 gwbox = uicontrol(mainfig, 'style', 'edit', 'units', 'normalized', 'position', [.6,.07,.05,.05]);
 uicontrol(mainfig, 'style', 'text', 'units', 'normalized', 'position', [.44,.07,.15,.05], 'string', 'Greenwich Hour Angle', 'horizontalalignment', 'right');
 
+% Add edit boxes for lat/long of observing station
+
+% Add drop-down menu for common stations
+
+% Add button to set lat/long from selected station
+
+% Add button to reset trail
+
+% Add button to set rv based on COE
+
+% Add button to set COE based on rv
+
+% Add button to pause/resume simulation
+
+% Add button to increase simulation speed
+
+% Add button to decrease simulation speed
+
 end
