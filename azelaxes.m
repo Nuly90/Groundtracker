@@ -1,6 +1,6 @@
 function cax = azelaxes(figure, position)
 
-dtr = pi/180
+dtr = pi/180;
 
 % Create axes object
 cax = axes(figure, 'units', 'normalized', 'position', position, 'xtick', [], 'ytick', []);
