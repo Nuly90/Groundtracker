@@ -1,6 +1,7 @@
 function coe = rv2coe(mue,r,v)
 
 % Find important vectors and scalars
+r2d = 180/pi;
 vmag = norm(v);
 rmag = norm(r);
 energy = vmag^2 / 2 - mue / rmag;
@@ -30,6 +31,6 @@ if dot(r, v) < 0
 end
 
 % Return Classical Orbital Elements
-coe = [a,e,inc,raan,ap,theta];
+coe = [a,e,inc*r2d,raan*r2d,ap*r2d,theta*r2d];
 
 end
