@@ -128,7 +128,7 @@ end
 
 function speedcb(suobj, eventdata, pauseobj)
 step = get(pauseobj, 'userdata');
-set(pauseobj, 'userdata', step^1.1+10)
+set(pauseobj, 'userdata', step^1.1+1)
 end
 
 function slowcb(suobj, eventdata, pauseobj)
@@ -138,7 +138,6 @@ end
 
 function advancetime(COEbox, RVbox, pausebutton, COE, Greenwich, J2box, gtrack, gwbox, trackhandle, orbit3d, azelline, latbox, longbox)
 run = 1;
-M = -500;
 while run
     timestep = get(pausebutton, 'userdata');
     if timestep ~= 0
@@ -146,7 +145,6 @@ while run
         COEG = COEadv(COE, M, Greenwich, timestep, J2);
         COE = COEG(1:6);
         Greenwich = COEG(7);
-        M = COEG(8);
         set(gwbox, 'string', sprintf('%.1f', Greenwich))
         
         for i = 1:6
@@ -193,7 +191,7 @@ while run
         end
         
         % Calculate lat/long
-        lat = asind(r(3)/norm(r));
+        lat = asind(v(3)/norm(v));
         Tlong = [cosd(Greenwich),sind(Greenwich),0;-sind(Greenwich),cosd(Greenwich),0;0,0,1];
         rlong = Tlong*r;
         long = atan2d(rlong(2),rlong(1));

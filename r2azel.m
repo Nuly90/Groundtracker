@@ -6,7 +6,7 @@ function azel = r2azel(lat,long,gst,r_ijk)
 
 Re=6378; %km
 
-r_site=Re*[cos(lat)*cos(long+gst) cos(lat)*sin(long+gst) sin(lat)];
+r_site=Re*[cosd(lat)*cosd(long+gst) cosd(lat)*sind(long+gst) sind(lat)];
 position_vector_ijk=(r_ijk-r_site)';
 
 %Transformation Matrix
@@ -19,13 +19,13 @@ Mijk_to_sez=[S; E; Z];
 
 Position_vector_SEZ=Mijk_to_sez*position_vector_ijk;
 
-position_vector_mag=norm(Position_vector);
+position_vector_mag=norm(Position_vector_SEZ);
 
 %Calculate Elevation and Azimuth
-El=asin(Position_vector_SEZ(3)/position_vector_mag);
-Az=acos(-Position_vector_SEZ(1)/position_vector_mag*cos(El));
+El=asind(Position_vector_SEZ(3)/position_vector_mag);
+Az=acosd(-Position_vector_SEZ(1)/position_vector_mag*cosd(El));
 
-if sin(Az)< 0
+if sind(Az)< 0
     Az=360-Az;
 end
 

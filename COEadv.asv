@@ -31,7 +31,7 @@ n = sqrt(mue/(a^3));
 
 if M == -500
     % Calculate mean anomaly
-    E = 2 * atand((sqrt((1-e)/(1+e)*tand(f/2))));
+    E = 2 * atand((sqrt((1+e)/(1-e)*tand(f/2))));
     M = E - e*sind(E);
 end
 

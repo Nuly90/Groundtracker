@@ -2,7 +2,7 @@ function E = MtoE(M,e)
 
 error = 1;
 Guess = M;
-while error > 0.00001
+while error > 0.000000001
     error = M - Guess + e*sin(Guess);
     slope = -1 + e*cos(Guess);
     Guess = Guess - error/slope;
